@@ -36,9 +36,6 @@ def findMaxSubarry(a,low,high):
         else:
             return(cross_low,cross_high,cross_sum)
 
-def arr(a):
-    for i in a:
-        print (i)
 
 def main():
     a=[13,-3,-25,20,-3,-16,-23,18,20,-7,12,-5,-22,15,-4,6]
