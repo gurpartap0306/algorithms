@@ -9,7 +9,7 @@ def count_sort(a,b,key):
         c[a[i]]=c[a[i]]+1
         i+=1
     i=1
-    while i<= 5:                    #c holds position of every value
+    while i<= key:                    #c holds position of every value
         c[i]=c[i]+c[i-1]
         i+=1
     j=len(a)-1
