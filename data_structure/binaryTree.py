@@ -27,7 +27,16 @@ def inorder(temp):
         print(temp.key)
         inorder(temp.right)
 
-
+def search(t,key):
+    if t==None:
+        return t
+    elif t.key==key:
+        return t
+    else:
+        if key<t.key:
+            a=search(t.left,key)
+        else: a=search(t.right,key)
+    return a
 
 def main():
     t=tree()
@@ -38,6 +47,9 @@ def main():
     insert(t,8)
     insert(t,5)
     inorder(t.root)
+    a=search(t.root,5)
+    if a!=None: print(a.key)
+    else:print ('no element in tree')
 
 
 if __name__=='__main__':
