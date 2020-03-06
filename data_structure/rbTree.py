@@ -10,33 +10,33 @@ class tree:
     def __init__(self):
         self.root=node(None)
 
-def left_rotate(t,z):
-    y=z.right
-    z.right=y.left
-    if y.left.key==None:
-        y.left.p=z
-    y.p=z.p
-    if z.p.key==None:
+def left_rotate(t,x):
+    y=x.right
+    x.right=y.left
+    if y.left.key is not None:
+        y.left.p=x
+    y.p=x.p
+    if x.p.key is None:
         t.root=y
-    elif z==z.p.left:
-        z.p.left=y
-    else: z.p.right =y
-    y.left =z
-    z.p =y
+    elif x==x.p.left:
+        x.p.left=y
+    else: x.p.right=y
+    y.left=x
+    x.p=y
 
-def right_rotate(t,z):
-    y=z.left
-    z.left=y.left
-    if y.left.key!=None:
-        y.left.p=z
-    y.p=z.p
-    if z.p.key==None:
+def right_rotate(t,x):
+    y=x.left
+    x.left=y.right
+    if y.right.key is not None:
+        y.right.p=x
+    y.p=x.p
+    if x.p.key is None:
         t.root=y
-    elif z==z.p.left:
-        z.p.left=y
-    else: z.p.right =y
-    y.right =z
-    z.p =y
+    elif x==x.p.left:
+        x.p.left=y
+    else: x.p.right=y
+    y.right=x
+    x.p=y
 
 def rb_insert_fixup(t,z):
     while z.p.color=='red':
