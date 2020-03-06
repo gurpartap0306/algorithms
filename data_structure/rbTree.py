@@ -1,5 +1,3 @@
-z=None
-
 class node:
     def __init__(self,key):
         self.key=key
@@ -40,9 +38,8 @@ def right_rotate(t,z):
     y.right =z
     z.p =y
 
-'''def rb_insert_fixup(t,z):
+def rb_insert_fixup(t,z):
     while z.p.color=='red':
-        print('hi')
         if z.p==z.p.p.left:
             y=z.p.p.right
             if y.color == 'red':
@@ -50,12 +47,13 @@ def right_rotate(t,z):
                 y.color='black'
                 z.p.p.color='red'
                 z=z.p.p
-            elif z==z.p.right:
-                z=z.p
-                left_rotate(t,z)
+            else:
+                if z==z.p.right:
+                    z=z.p
+                    left_rotate(t,z)
                 z.p.color='black'
                 z.p.p.color='red'
-                right_rotate(t,z)
+                right_rotate(t,z.p.p)
 
         else:
             y=z.p.p.left
@@ -64,14 +62,15 @@ def right_rotate(t,z):
                 y.color='black'
                 z.p.p.color='red'
                 z=z.p.p
-            elif z==z.p.left:
-                z=z.p
-                right_rotate(t,z)
+            else:
+                if z==z.p.left:
+                    z=z.p
+                    right_rotate(t,z)
                 z.p.color='black'
                 z.p.p.color='red'
-                left_rotate(t,z)
+                left_rotate(t,z.p.p)
     t.root.color='black'
-'''
+
 
 def rb_insert(t,z):
     y=node(None)
@@ -91,12 +90,12 @@ def rb_insert(t,z):
     z.left=node(None)
     z.right=node(None)
     z.color='red'
-    #rb_insert_fixup(t,z)
+    rb_insert_fixup(t,z)
 
 def inorder(t):
     if t is not None:
         inorder(t.left)
-        if t.key is not None: print(t.key)
+        if t.key is not None: print(t.key,t.color)
         inorder(t.right)
 
 def search(t,z):
@@ -120,14 +119,16 @@ def main():
     rb_insert(t,node(6))
     rb_insert(t,node(7))
     rb_insert(t,node(15))
-    #print(t.root.key)
-    z=search(t.root,9)
-    print (z.p)
+    '''#print(t.root.key)
+    z=search(t.root,2)
+    print (z.p.key)
     #inorder(t.root)
     print('********')
-    left_rotate(t,z)
+    right_rotate(t,z)
     #inorder(t.root)
-    print(search(t.root,9).p)
+    print(search(t.root,2).p.key)'''
+    inorder(t.root)
+    print(t.root.right.key)
 
 if __name__=='__main__':
     main()
