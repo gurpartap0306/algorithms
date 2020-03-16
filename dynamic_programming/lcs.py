@@ -1,5 +1,5 @@
 def lcs(a,b):
-    
+
 
 
 def main():
@@ -9,3 +9,6 @@ def main():
 
 if __name__=='__main__':
     main()
+
+
+#i have to figure out how to slove this problem .
