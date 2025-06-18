@@ -1,0 +1,7 @@
+# IntelliJ IDEA
+*.idea/
+*.iml
+
+Java/src/main/java/com/learning/leetcode/Main.java
+Java/src/out
+Java/src/.idea
